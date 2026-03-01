@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=1280, initial-scale=1.0">
 <title>Rukaz GRC | AI-Powered Cybersecurity Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -217,11 +217,7 @@
   .how-fw-pill { display:inline-flex; align-items:center; gap:7px; padding:7px 18px; border-radius:30px; font-size:0.8rem; font-weight:700; border:1.5px solid var(--border-card); background:var(--bg-card); color:var(--text-dark); }
   .how-arch-arrow { display:flex; flex-direction:column; align-items:center; gap:0; margin-bottom:16px; }
   .how-arch-vline { width:2px; height:24px; background:linear-gradient(to bottom,var(--gold-mid),transparent); }
-  @media(max-width:768px){
-    .how-steps { grid-template-columns:1fr; }
-    .how-step-connector { display:none; }
-    .how-frameworks-row { gap:8px; }
-  }
+  
   .how-arch { max-width:1000px; margin:0 auto; }
   .how-nca-badge { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:white; font-size:0.75rem; font-weight:700; padding:6px 16px; border-radius:20px; margin-bottom:40px; letter-spacing:0.5px; }
   .how-nca-badge svg { color:white; }
@@ -316,16 +312,7 @@
   .abt-persona-tags { display:flex; flex-direction:column; gap:6px; }
   .abt-persona-tags .tag { font-size:0.73rem; color:var(--text-muted); background:var(--bg-body); border:1px solid var(--border-card); border-radius:6px; padding:4px 10px; display:inline-block; }
 
-  @media(max-width:768px){
-    .abt-hero { grid-template-columns:1fr; gap:32px; }
-    .abt-zig-row { grid-template-columns:1fr; }
-    .abt-zig-arrow { display:none; }
-    .abt-zig-reverse .abt-zig-problem { order:unset; }
-    .abt-zig-reverse .abt-zig-solution { order:unset; }
-    .abt-personas-grid { grid-template-columns:1fr; border-radius:16px; }
-    .abt-persona { border-right:none; border-bottom:1.5px solid var(--border-card); }
-    .abt-persona:last-child { border-bottom:none; }
-  }
+  
 
   /* ── AGENT TABS ── */
   .agent-tab-content { max-width:1100px; margin:0 auto; }
@@ -400,6 +387,14 @@
   .en-block { display:block; }
   body.ar .ar-block { display:block; }
   body.ar .en-block { display:none; }
+
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stats-bar { padding: 32px 14px; }
+    .hero { padding: 90px 14px 52px; }
+    nav { padding: 0 14px; }
+    .fw-tab { font-size: 0.7rem; padding: 6px 10px; }
+  }
+
 </style>
 </head>
 <body>
@@ -949,13 +944,13 @@
         <p><span class="en-text">Mandatory framework for all SAMA-regulated financial institutions covering governance, risk management, operations, and third-party security across 4 main domains.</span><span class="ar-text">الإطار الإلزامي لجميع المؤسسات المالية المرخصة من سما. يغطي الحوكمة وإدارة المخاطر والعمليات وأمن الأطراف الثالثة في 4 مجالات.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/cyber-security-framework-3';}else{this.href='https://rulebook.sama.gov.sa/en/cyber-security-framework-3';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/cyber-security-framework-2" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">CSF Rulebook</div>
         <h4><span class="en-text">Cyber Security Framework — Rulebook</span><span class="ar-text">إطار الأمن السيبراني — كتاب القواعد</span></h4>
         <p><span class="en-text">Official SAMA rulebook version with all mandatory compliance instructions for banks and financial institutions operating in Saudi Arabia.</span><span class="ar-text">النسخة الرسمية من كتاب قواعد سما مع جميع تعليمات الامتثال الإلزامية للبنوك والمؤسسات المالية في المملكة.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/cyber-security-framework-maturity-level-4-requirements';}else{this.href='https://rulebook.sama.gov.sa/en/cyber-security-framework-maturity-level-4-requirements';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">CSF ML4</div>
         <h4><span class="en-text">Cyber Security Framework — Maturity Level 4</span><span class="ar-text">إطار الأمن السيبراني — مستوى النضج 4</span></h4>
         <p><span class="en-text">Advanced maturity level 4 requirements for banks to enhance cybersecurity capabilities and professionally manage cyber challenges.</span><span class="ar-text">متطلبات مستوى النضج 4 المتقدم للبنوك لتعزيز قدرات الأمن السيبراني وإدارة التحديات السيبرانية باحترافية.</span></p>
@@ -971,13 +966,13 @@
         <p><span class="en-text">Framework enabling SAMA-regulated organizations to identify and address IT governance risks and achieve the appropriate maturity level of IT controls.</span><span class="ar-text">إطار يمكّن المنظمات الخاضعة لسما من تحديد مخاطر حوكمة تقنية المعلومات ومعالجتها وتحقيق مستوى النضج المناسب.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/sites/default/files/ar_net_file_store/SAMA_AR_3726_VER1.pdf" data-ar="https://rulebook.sama.gov.sa/sites/default/files/ar_net_file_store/SAMA_AR_3726_VER1.pdf" onclick="if(document.body.classList.contains('ar')){this.href=this.dataset.ar;}else{this.href='https://rulebook.sama.gov.sa/en/entiresection/4498';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/entiresection/4498" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">CRFR</div>
         <h4><span class="en-text">Cyber Resilience Fundamental Requirements</span><span class="ar-text">متطلبات المرونة السيبرانية الأساسية</span></h4>
         <p><span class="en-text">Minimum cyber resilience requirements for newly licensed fintech entities and sandbox participants entering Saudi Arabia's financial sector.</span><span class="ar-text">الحد الأدنى من متطلبات المرونة السيبرانية للمنشآت الجديدة والمشاركين في بيئة الاختبار الرقابي للقطاع المالي.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/24-cyber-security-maturity-model-0';}else{this.href='https://rulebook.sama.gov.sa/en/24-cyber-security-maturity-model-0';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">Maturity Model</div>
         <h4><span class="en-text">Cyber Security Maturity Model</span><span class="ar-text">نموذج نضج الأمن السيبراني</span></h4>
         <p><span class="en-text">SAMA's 6-level cybersecurity maturity model (0–5) used to periodically assess and compare Member Organizations' cybersecurity effectiveness.</span><span class="ar-text">نموذج سما لنضج الأمن السيبراني المكوّن من 6 مستويات (0–5)، يُستخدم لتقييم فعالية الأمن السيبراني ومقارنتها بين المنظمات.</span></p>
@@ -1011,21 +1006,41 @@
       </a>
     </div>
 
+    <div class="fw-category-label">🔴 <span class="en-text">Red Teaming & Testing</span><span class="ar-text">الاختبار والفرق الحمراء</span></div>
+    <div class="fw-grid" style="margin-bottom:28px;">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Financial%20Entities%20Ethical%20Red%20Teaming%20Framework.pdf" target="_blank" rel="noopener">
+        <div class="fw-badge sama-badge">FEER</div>
+        <h4><span class="en-text">Financial Entities Ethical Red Teaming Framework</span><span class="ar-text">إطار الاختبار الأخلاقي بالفرق الحمراء للكيانات المالية</span></h4>
+        <p><span class="en-text">Framework guiding SAMA-regulated entities on conducting controlled simulated cyber attacks (red teaming) to test resilience, detection, and response capabilities. May 2019.</span><span class="ar-text">إطار يوجّه الكيانات الخاضعة لسما في تنفيذ هجمات سيبرانية محاكاة (اختبار الفرق الحمراء) لاختبار المرونة وقدرات الكشف والاستجابة. مايو 2019.</span></p>
+        <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
+      </a>
+    </div>
+
+    <div class="fw-category-label">🗄️ <span class="en-text">Data Security</span><span class="ar-text">أمن البيانات</span></div>
+    <div class="fw-grid" style="margin-bottom:28px;">
+      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/data-cybersecurity-controls" target="_blank" rel="noopener">
+        <div class="fw-badge sama-badge">DCS</div>
+        <h4><span class="en-text">Data Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للبيانات</span></h4>
+        <p><span class="en-text">SAMA data-specific cybersecurity controls requiring financial institutions to implement data classification, encryption, access controls, and data loss prevention mechanisms.</span><span class="ar-text">ضوابط سما الخاصة بأمن البيانات تلزم المؤسسات المالية بتصنيف البيانات والتشفير وضوابط الوصول ومنع فقدان البيانات.</span></p>
+        <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
+      </a>
+    </div>
+
     <div class="fw-category-label">📋 <span class="en-text">Domains & Key Controls</span><span class="ar-text">المجالات والضوابط الرئيسية</span></div>
     <div class="fw-grid">
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/311-cyber-security-governance-0';}else{this.href='https://rulebook.sama.gov.sa/en/311-cyber-security-governance-0';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">Governance</div>
         <h4><span class="en-text">Cyber Security Governance</span><span class="ar-text">حوكمة الأمن السيبراني</span></h4>
         <p><span class="en-text">Controls covering cybersecurity strategy, policies, roles, and board-level oversight for SAMA-regulated financial institutions.</span><span class="ar-text">ضوابط تغطي استراتيجية الأمن السيبراني والسياسات والأدوار والرقابة على مستوى مجلس الإدارة للمؤسسات المالية.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/321-cyber-security-risk-management-0';}else{this.href='https://rulebook.sama.gov.sa/en/321-cyber-security-risk-management-0';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">Risk Mgmt</div>
         <h4><span class="en-text">Cyber Security Risk Management</span><span class="ar-text">إدارة مخاطر الأمن السيبراني</span></h4>
         <p><span class="en-text">Requirements for identifying, assessing, and treating cybersecurity risks across all information assets of financial institutions.</span><span class="ar-text">متطلبات تحديد وتقييم ومعالجة مخاطر الأمن السيبراني عبر جميع أصول المعلومات للمؤسسات المالية.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx" onclick="if(document.body.classList.contains('ar')){this.href='https://www.sama.gov.sa/ar-SA/RulesInstructions/pages/cybersecurity.aspx';}else{this.href='https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx';}" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx" target="_blank" rel="noopener">
         <div class="fw-badge" style="background:linear-gradient(135deg,#3d5166,#6b8499);">
           <span class="en-text">All Docs</span><span class="ar-text">كل الوثائق</span>
         </div>
@@ -1244,14 +1259,6 @@
 
   <div class="f-divider"></div>
 
-  <div class="f-dev-center">
-    <span class="f-dev-by"><span class="en-text">Developed by</span><span class="ar-text">تم التطوير بواسطة</span></span>
-    <a href="https://linkedin.com/in/nawaf-alh" target="_blank" rel="noopener" class="f-dev-card">
-      <span class="f-dev-name">Nawaf Alharthi</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="f-dev-li"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-  </div>
-
   <div class="f-copy-line">© 2025 Rukaz GRC</div>
 </footer>
 
@@ -1354,6 +1361,18 @@
 
   goTo(0);
   window.addEventListener('resize', update);
+
+  // Close mobile nav when clicking outside
+  document.addEventListener('click', function(e) {
+    var btn = document.getElementById('navHamburger');
+    var drawer = document.getElementById('navMobileDrawer');
+    var nav = document.querySelector('nav');
+    if (btn && drawer && !nav.contains(e.target) && !drawer.contains(e.target)) {
+      btn.classList.remove('open');
+      drawer.classList.remove('open');
+    }
+  });
+
 </script>
 </body>
 </html>
