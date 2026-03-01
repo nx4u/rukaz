@@ -3,36 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GRCore | AI-Powered Cybersecurity GRC Platform</title>
+<title>Rukaz GRC | AI-Powered Cybersecurity Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --teal-deep:   #0a3d7a;
-    --teal-mid:    #0d52a8;
-    --teal-bright: #1060c0;
-    --teal-light:  #1a72d4;
-    --bg-body:     #ffffff;
+    --teal-deep:   #1a1200;
+    --teal-mid:    #b8860b;
+    --teal-bright: #d4a017;
+    --teal-light:  #e8b830;
+    --gold-dark:   #8a6200;
+    --gold-mid:    #b8860b;
+    --gold-bright: #d4a017;
+    --gold-glow:   rgba(184,134,11,0.25);
+    --navy:        #0d1b2a;
+    --navy-mid:    #162032;
+    --bg-body:     #fdfaf4;
     --bg-card:     #ffffff;
-    --bg-nav:      rgba(255,255,255,0.93);
-    --border-card: #eaeef2;
-    --hero-wave:   #ffffff;
-    --text-dark:   #1a2533;
-    --text-mid:    #3d5166;
-    --text-muted:  #6b8499;
-    --shadow:      0 4px 24px rgba(10,61,122,0.08);
-    --shadow-hover:0 12px 40px rgba(10,61,122,0.16);
+    --bg-nav:      rgba(253,250,244,0.95);
+    --border-card: #e8e0cc;
+    --hero-wave:   #fdfaf4;
+    --text-dark:   #1a1200;
+    --text-mid:    #3d3010;
+    --text-muted:  #7a6840;
+    --shadow:      0 4px 24px rgba(184,134,11,0.10);
+    --shadow-hover:0 12px 40px rgba(184,134,11,0.22);
   }
   body.dark {
-    --bg-body:     #0f1117;
-    --bg-card:     #1a1f2e;
-    --bg-nav:      rgba(15,17,23,0.95);
-    --border-card: #2a2f3d;
-    --hero-wave:   #0f1117;
-    --text-dark:   #e8edf5;
-    --text-mid:    #a0aec0;
-    --text-muted:  #718096;
-    --shadow:      0 4px 24px rgba(0,0,0,0.3);
-    --shadow-hover:0 12px 40px rgba(0,0,0,0.5);
+    --bg-body:     #0d0f0a;
+    --bg-card:     #13160f;
+    --bg-nav:      rgba(13,15,10,0.96);
+    --border-card: #2a2510;
+    --hero-wave:   #0d0f0a;
+    --text-dark:   #f0e8cc;
+    --text-mid:    #c8b880;
+    --text-muted:  #8a7850;
+    --shadow:      0 4px 24px rgba(0,0,0,0.4);
+    --shadow-hover:0 12px 40px rgba(184,134,11,0.2);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family:'DM Sans',sans-serif; background:var(--bg-body); color:var(--text-dark); overflow-x:hidden; transition:background 0.3s,color 0.3s; }
@@ -51,20 +57,25 @@
 
   /* ── NAV ── */
   nav { position:fixed; top:0; left:0; right:0; z-index:200; height:66px; display:flex; align-items:center; justify-content:space-between; padding:0 48px; background:var(--bg-nav); backdrop-filter:blur(16px); border-bottom:1px solid var(--border-card); box-shadow:0 2px 20px rgba(0,0,0,0.07); transition:background 0.3s; }
-  .logo { display:flex; align-items:center; gap:10px; font-weight:700; font-size:1.1rem; color:var(--teal-mid); text-decoration:none; }
-  .logo-shield { width:32px; height:32px; background:linear-gradient(135deg,var(--teal-mid),var(--teal-light)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.9rem; }
+  .logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .logo-rukaz { width:40px; height:40px; background:linear-gradient(145deg,#1a1200,#2d2000); border-radius:11px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(184,134,11,0.35); flex-shrink:0; border:1px solid rgba(212,160,23,0.3); }
+  .logo-text-wrap { display:flex; flex-direction:column; line-height:1; gap:2px; }
+  .logo-name { font-size:1.08rem; font-weight:800; color:var(--text-dark); letter-spacing:0.01em; }
+  .logo-sub { font-size:0.58rem; font-weight:800; letter-spacing:0.22em; color:var(--gold-mid); text-transform:uppercase; }
+  nav .logo-name { color:white; }
+  nav .logo-sub { color:rgba(212,160,23,0.8); }
   .nav-links { display:flex; gap:6px; list-style:none; align-items:center; }
   .nav-links a { display:flex; align-items:center; gap:6px; font-size:0.82rem; font-weight:600; color:var(--text-mid); text-decoration:none; padding:7px 14px; border-radius:10px; transition:all 0.2s; border:1px solid transparent; }
   .nav-links a:hover { color:var(--teal-mid); background:rgba(13,82,168,0.07); border-color:rgba(13,82,168,0.15); }
   .nav-links a svg { flex-shrink:0; opacity:0.6; transition:opacity 0.2s; }
   .nav-links a:hover svg { opacity:1; }
-  .nav-btn { background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white!important; padding:9px 20px; border-radius:8px; font-weight:600!important; box-shadow:0 4px 14px rgba(13,82,168,0.3); transition:opacity 0.2s,transform 0.2s!important; }
+  .nav-btn { background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white!important; padding:9px 20px; border-radius:8px; font-weight:600!important; box-shadow:0 4px 14px rgba(184,134,11,0.3); transition:opacity 0.2s,transform 0.2s!important; }
   .nav-btn:hover { opacity:0.9; transform:translateY(-1px); }
   .nav-controls { display:flex; align-items:center; gap:12px; }
 
   /* LANG SWITCH */
   .lang-btn { background:transparent; border:1.5px solid var(--border-card); color:var(--text-mid); font-size:0.78rem; font-weight:700; padding:5px 12px; border-radius:7px; cursor:pointer; transition:all 0.2s; letter-spacing:0.5px; }
-  .lang-btn:hover { border-color:var(--teal-mid); color:var(--teal-mid); }
+  .lang-btn:hover { border-color:var(--gold-mid); color:var(--gold-mid); }
 
   /* DARK MODE BTN */
   .dark-mode-btn {
@@ -77,13 +88,13 @@
     display:flex; align-items:center; justify-content:center;
     transition:all 0.2s;
   }
-  .dark-mode-btn:hover { border-color:var(--teal-mid); color:var(--teal-mid); background:rgba(13,82,168,0.06); }
+  .dark-mode-btn:hover { border-color:var(--gold-mid); color:var(--gold-mid); background:rgba(13,82,168,0.06); }
   body.dark .dark-mode-btn { border-color:#3a4060; background:#1a1f2e; color:#a0aec0; }
   body.dark .dark-mode-btn:hover { border-color:var(--teal-light); color:var(--teal-light); }
 
   /* ── HERO ── */
-  .hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 60px 100px; background:linear-gradient(160deg,#082d5e 0%,#0a3d7a 30%,#0d52a8 60%,#1060c0 100%); overflow:hidden; }
-  .hero::before { content:''; position:absolute; top:-10%; left:50%; transform:translateX(-50%); width:700px; height:700px; background:radial-gradient(circle,rgba(255,255,255,0.07) 0%,transparent 65%); pointer-events:none; }
+  .hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 60px 100px; background:linear-gradient(150deg,#0d0e00 0%,#1a1200 25%,#2d2000 55%,#3d2d00 80%,#1a1200 100%); overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-10%; left:50%; transform:translateX(-50%); width:700px; height:700px; background:radial-gradient(circle,rgba(212,160,23,0.12) 0%,transparent 65%); pointer-events:none; }
   .hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:80px; background:var(--hero-wave); clip-path:ellipse(55% 100% at 50% 100%); }
   .hero-icon { font-size:3.2rem; margin-bottom:24px; filter:drop-shadow(0 0 20px rgba(100,160,255,0.5)); animation:floatIcon 4s ease-in-out infinite; position:relative; z-index:1; }
   @keyframes floatIcon { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
@@ -93,7 +104,7 @@
   .hero-desc { position:relative; z-index:1; max-width:600px; font-size:0.95rem; line-height:1.75; color:rgba(255,255,255,0.7); margin-bottom:10px; animation:fadeUp 0.7s 0.3s ease both; }
   .hero-desc2 { position:relative; z-index:1; max-width:560px; font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.58); margin-bottom:44px; animation:fadeUp 0.7s 0.35s ease both; }
   .hero-btns { position:relative; z-index:1; display:flex; gap:14px; animation:fadeUp 0.7s 0.45s ease both; }
-  .btn-white { background:white; color:var(--teal-deep); font-weight:600; font-size:0.9rem; padding:13px 32px; border-radius:10px; border:none; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,0.12); transition:all 0.25s; }
+  .btn-white { background:white; color:#1a1200; font-weight:600; font-size:0.9rem; padding:13px 32px; border-radius:10px; border:none; cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,0.12); transition:all 0.25s; }
   .btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,0,0,0.18); }
   .btn-outline { background:transparent; color:white; font-weight:500; font-size:0.9rem; padding:12px 32px; border-radius:10px; border:1.5px solid rgba(255,255,255,0.45); cursor:pointer; transition:all 0.25s; }
   .btn-outline:hover { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.7); }
@@ -102,7 +113,7 @@
   .hero-dev { display:inline-flex; align-items:center; gap:10px; margin-top:32px; padding:8px 20px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:30px; text-decoration:none; transition:all 0.25s; position:relative; z-index:1; }
   .hero-dev:hover { background:rgba(255,255,255,0.14); border-color:rgba(255,255,255,0.3); transform:translateY(-2px); }
   .hero-dev-by { font-size:0.75rem; color:rgba(255,255,255,0.5); }
-  .hero-dev-avatar { width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,rgba(255,255,255,0.3),rgba(255,255,255,0.15)); display:flex; align-items:center; justify-content:center; font-size:0.55rem; font-weight:800; color:white; }
+  .hero-dev-avatar { width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,rgba(212,160,23,0.4),rgba(212,160,23,0.2)); display:flex; align-items:center; justify-content:center; font-size:0.55rem; font-weight:800; color:white; }
   .hero-dev-name { font-size:0.82rem; font-weight:700; color:rgba(255,255,255,0.9); }
 
   /* ── SECTIONS ── */
@@ -116,16 +127,16 @@
   /* ── AGENTS ── */
   .agents-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; max-width:1100px; margin:0 auto; }
   .agent-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:16px; padding:40px 32px 36px; text-align:center; box-shadow:var(--shadow); transition:all 0.3s; position:relative; overflow:hidden; }
-  .agent-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--teal-mid),var(--teal-light)); opacity:0; transition:opacity 0.3s; }
-  .agent-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:rgba(13,82,168,0.3); }
+  .agent-card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,var(--gold-mid),var(--gold-bright)); opacity:0; transition:opacity 0.3s; }
+  .agent-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-hover); border-color:rgba(184,134,11,0.35); }
   .agent-card:hover::before { opacity:1; }
   .ac-icon svg { color: var(--teal-mid); width:32px; height:32px; }
   .agent-card:hover .ac-icon svg { color: white; }
-  .ac-icon { width:64px; height:64px; background:rgba(13,82,168,0.08); border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 22px; font-size:1.6rem; border:1px solid rgba(13,82,168,0.15); transition:all 0.3s; }
-  .agent-card:hover .ac-icon { background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); border-color:transparent; transform:scale(1.05); }
+  .ac-icon { width:64px; height:64px; background:rgba(184,134,11,0.08); border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 22px; font-size:1.6rem; border:1px solid rgba(184,134,11,0.18); transition:all 0.3s; }
+  .agent-card:hover .ac-icon { background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); border-color:transparent; transform:scale(1.05); }
   .agent-card h3 { font-size:1.1rem; font-weight:700; color:var(--text-dark); margin-bottom:12px; }
   .agent-card p { font-size:0.875rem; line-height:1.7; color:var(--text-muted); margin-bottom:22px; }
-  .agent-tag { display:inline-block; background:rgba(13,82,168,0.07); color:var(--teal-mid); font-size:0.7rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:20px; border:1px solid rgba(13,82,168,0.18); }
+  .agent-tag { display:inline-block; background:rgba(184,134,11,0.08); color:var(--gold-mid); font-size:0.7rem; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:5px 14px; border-radius:20px; border:1px solid rgba(13,82,168,0.18); }
   body.ar .agent-tag { letter-spacing:0; font-size:0.8rem; }
 
   /* ── CAROUSEL ── */
@@ -136,7 +147,7 @@
   body.ar .ctl .sec-title { text-align:right; }
   .c-nav { display:flex; align-items:center; gap:12px; flex-shrink:0; }
   .c-btn { width:42px; height:42px; border-radius:10px; border:1.5px solid var(--border-card); background:var(--bg-card); color:var(--text-mid); font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.25s; }
-  .c-btn:hover { border-color:var(--teal-mid); color:var(--teal-mid); }
+  .c-btn:hover { border-color:var(--gold-mid); color:var(--gold-mid); }
   .c-btn:disabled { opacity:0.3; cursor:not-allowed; }
   .c-dots { display:flex; gap:6px; align-items:center; }
   .c-dot { width:7px; height:7px; border-radius:50%; background:var(--border-card); cursor:pointer; transition:all 0.3s; }
@@ -147,8 +158,8 @@
   .c-track { display:flex; gap:20px; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1); }
   .c-slide { min-width:calc(33.333% - 14px); flex-shrink:0; }
   .c-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:14px; padding:30px 26px; box-shadow:var(--shadow); transition:all 0.3s; }
-  .c-card:hover { border-color:rgba(13,82,168,0.3); box-shadow:var(--shadow-hover); transform:translateY(-4px); }
-  .cc-icon { width:46px; height:46px; background:rgba(13,82,168,0.08); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:16px; border:1px solid rgba(13,82,168,0.12); }
+  .c-card:hover { border-color:rgba(184,134,11,0.35); box-shadow:var(--shadow-hover); transform:translateY(-4px); }
+  .cc-icon { width:46px; height:46px; background:rgba(184,134,11,0.08); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:16px; border:1px solid rgba(13,82,168,0.12); }
   .cc-cat { font-size:0.67rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--teal-mid); margin-bottom:8px; display:block; }
   body.ar .cc-cat { letter-spacing:0; font-size:0.75rem; }
   .c-card h4 { font-size:1rem; font-weight:700; color:var(--text-dark); margin-bottom:10px; line-height:1.3; }
@@ -166,8 +177,8 @@
   body.ar .fw-category-label { letter-spacing:0; font-size:0.85rem; }
   .fw-card { background:var(--bg-card); border:1px solid var(--border-card); border-radius:14px; padding:26px 22px; text-align:center; box-shadow:var(--shadow); transition:all 0.3s; }
   .fw-link { text-decoration:none; display:block; cursor:pointer; }
-  .fw-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:rgba(13,82,168,0.3); }
-  .fw-badge { display:inline-block; background:linear-gradient(135deg,var(--teal-mid),var(--teal-light)); color:white; font-size:0.78rem; font-weight:700; letter-spacing:1px; padding:5px 14px; border-radius:8px; margin-bottom:12px; }
+  .fw-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:rgba(184,134,11,0.35); }
+  .fw-badge { display:inline-block; background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:#1a1200; font-size:0.78rem; font-weight:700; letter-spacing:1px; padding:5px 14px; border-radius:8px; margin-bottom:12px; }
   .fw-card h4 { font-size:0.88rem; font-weight:600; color:var(--text-dark); margin-bottom:8px; line-height:1.4; }
   .fw-card p { font-size:0.78rem; color:var(--text-muted); line-height:1.6; margin-bottom:12px; }
   .fw-cta { font-size:0.7rem; font-weight:600; color:var(--teal-mid); }
@@ -178,8 +189,8 @@
   /* Framework & Agent Tabs */
   .fw-tabs { display:flex; gap:8px; justify-content:center; margin-bottom:36px; direction:ltr; flex-wrap:wrap; }
   .fw-tab { display:inline-flex; align-items:center; gap:7px; padding:9px 22px; border-radius:30px; border:1.5px solid var(--border-card); background:var(--bg-card); color:var(--text-muted); font-size:0.82rem; font-weight:700; cursor:pointer; transition:all 0.25s; letter-spacing:0.5px; }
-  .fw-tab:hover { border-color:rgba(13,82,168,0.4); color:var(--text-dark); }
-  .fw-tab.active { background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); border-color:transparent; color:white; box-shadow:0 4px 16px rgba(13,82,168,0.35); }
+  .fw-tab:hover { border-color:rgba(184,134,11,0.5); color:var(--text-dark); }
+  .fw-tab.active { background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); border-color:transparent; color:white; box-shadow:0 4px 16px rgba(184,134,11,0.35); }
   .fw-tab-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
   .nca-dot { background:#0d52a8; }
   .iso-dot { background:#2d8a42; }
@@ -189,30 +200,30 @@
   .fw-tab-ext:hover { opacity:1; }
   .fw-tab-header { margin-bottom:24px; }
   .fw-tab-src { font-size:0.75rem; font-weight:600; color:var(--text-muted); background:var(--bg-card); border:1px solid var(--border-card); padding:5px 12px; border-radius:8px; text-decoration:none; display:inline-block; transition:all 0.2s; }
-  .fw-tab-src:hover { color:var(--teal-mid); border-color:var(--teal-mid); }
+  .fw-tab-src:hover { color:var(--gold-mid); border-color:var(--gold-mid); }
   .fw-tab-content { max-width:1100px; margin:0 auto; }
 
 
   /* ── HOW IT WORKS ── */
   .how-steps { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:0; max-width:1100px; margin:0 auto 60px; align-items:start; }
   .how-step { background:var(--bg-card); border:1.5px solid var(--border-card); border-radius:16px; padding:28px 24px; text-align:center; position:relative; }
-  .how-step-num { position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-size:0.65rem; font-weight:900; letter-spacing:0.1em; background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white; padding:3px 12px; border-radius:20px; }
+  .how-step-num { position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-size:0.65rem; font-weight:900; letter-spacing:0.1em; background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:white; padding:3px 12px; border-radius:20px; }
   .how-step-icon { font-size:2rem; margin:8px 0 12px; display:block; }
   .how-step h4 { font-size:0.92rem; font-weight:700; color:var(--text-dark); margin:0 0 10px; }
   .how-step p { font-size:0.78rem; color:var(--text-muted); line-height:1.7; margin:0; }
   .how-step-connector { display:flex; align-items:center; justify-content:center; padding:0 8px; padding-top:60px; }
-  .how-step-line { width:40px; height:2px; background:linear-gradient(90deg,var(--teal-mid),var(--teal-bright)); border-radius:2px; }
+  .how-step-line { width:40px; height:2px; background:linear-gradient(90deg,var(--gold-mid),var(--gold-bright)); border-radius:2px; }
   .how-frameworks-row { display:flex; gap:10px; justify-content:center; margin-bottom:16px; flex-wrap:wrap; }
   .how-fw-pill { display:inline-flex; align-items:center; gap:7px; padding:7px 18px; border-radius:30px; font-size:0.8rem; font-weight:700; border:1.5px solid var(--border-card); background:var(--bg-card); color:var(--text-dark); }
   .how-arch-arrow { display:flex; flex-direction:column; align-items:center; gap:0; margin-bottom:16px; }
-  .how-arch-vline { width:2px; height:24px; background:linear-gradient(to bottom,var(--teal-mid),transparent); }
+  .how-arch-vline { width:2px; height:24px; background:linear-gradient(to bottom,var(--gold-mid),transparent); }
   @media(max-width:768px){
     .how-steps { grid-template-columns:1fr; }
     .how-step-connector { display:none; }
     .how-frameworks-row { gap:8px; }
   }
   .how-arch { max-width:1000px; margin:0 auto; }
-  .how-nca-badge { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white; font-size:0.75rem; font-weight:700; padding:6px 16px; border-radius:20px; margin-bottom:40px; letter-spacing:0.5px; }
+  .how-nca-badge { display:inline-flex; align-items:center; gap:7px; background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:white; font-size:0.75rem; font-weight:700; padding:6px 16px; border-radius:20px; margin-bottom:40px; letter-spacing:0.5px; }
   .how-nca-badge svg { color:white; }
   .how-agents { display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:center; margin-bottom:20px; }
   .how-agents-bottom { display:flex; justify-content:center; margin-bottom:40px; }
@@ -221,7 +232,7 @@
   .how-agent-card { background:var(--bg-card); border:1.5px solid var(--border-card); border-radius:16px; padding:28px 24px; text-align:center; box-shadow:var(--shadow); transition:all 0.3s; }
   .how-agent-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); }
   .how-agent-icon { width:60px; height:60px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
-  .gov-color { background:rgba(13,82,168,0.1); color:var(--teal-mid); }
+  .gov-color { background:rgba(13,82,168,0.1); color:var(--gold-mid); }
   .gov-color svg { color:var(--teal-mid); }
   .risk-color { background:rgba(220,53,69,0.1); color:#dc3545; }
   .risk-color svg { color:#dc3545; }
@@ -234,36 +245,37 @@
 
   /* Hub */
   .how-hub { display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
-  .how-hub-inner { background:linear-gradient(135deg,var(--teal-deep),var(--teal-mid)); border-radius:20px; padding:22px 18px; text-align:center; box-shadow:0 8px 32px rgba(13,82,168,0.35); z-index:1; position:relative; min-width:110px; }
+  .how-hub-inner { background:linear-gradient(135deg,#1a1200,#3d2d00); border-radius:20px; padding:22px 18px; text-align:center; box-shadow:0 8px 32px rgba(184,134,11,0.35); z-index:1; position:relative; min-width:110px; }
   .how-hub-icon { font-size:2rem; margin-bottom:6px; }
   .how-hub-name { font-size:1rem; font-weight:800; color:white; }
   .how-hub-sub { font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:3px; }
   .how-hub-lines { position:absolute; inset:0; pointer-events:none; }
-  .how-line { position:absolute; background:linear-gradient(90deg,var(--teal-mid),transparent); height:2px; opacity:0.3; }
-  .how-line.left { right:100%; top:50%; width:40px; transform:translateY(-50%); background:linear-gradient(270deg,var(--teal-mid),transparent); }
+  .how-line { position:absolute; background:linear-gradient(90deg,var(--gold-mid),transparent); height:2px; opacity:0.3; }
+  .how-line.left { right:100%; top:50%; width:40px; transform:translateY(-50%); background:linear-gradient(270deg,var(--gold-mid),transparent); }
   .how-line.right { left:100%; top:50%; width:40px; transform:translateY(-50%); }
-  .how-line.bottom { left:50%; top:100%; width:2px; height:20px; background:linear-gradient(180deg,var(--teal-mid),transparent); transform:translateX(-50%); }
+  .how-line.bottom { left:50%; top:100%; width:2px; height:20px; background:linear-gradient(180deg,var(--gold-mid),transparent); transform:translateX(-50%); }
 
   /* NCA Strip */
   .how-nca-strip { background:var(--bg-card); border:1.5px solid var(--border-card); border-radius:14px; padding:20px 28px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
   .how-nca-label { font-size:0.8rem; font-weight:600; color:var(--text-mid); white-space:nowrap; }
   .how-nca-tags { display:flex; gap:8px; flex-wrap:wrap; }
-  .nca-ftag { background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white; font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:6px; letter-spacing:0.5px; }
+  .how-fw-group-label { font-size:0.65rem; font-weight:800; color:var(--text-muted); letter-spacing:0.08em; text-transform:uppercase; align-self:center; }
+  .nca-ftag { background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:#1a1200; font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:6px; letter-spacing:0.5px; }
 
   /* ── ABOUT REDESIGN ── */
   .about-redesign { background:var(--bg-body); padding:80px 40px; overflow:hidden; }
   
   /* Hero */
   .abt-hero { display:grid; grid-template-columns:1fr 1fr; gap:60px; max-width:1100px; margin:0 auto 80px; align-items:center; }
-  .abt-eyebrow { font-size:0.7rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:20px; display:block; }
+  .abt-eyebrow { font-size:0.7rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-mid); margin-bottom:20px; display:block; }
   .abt-headline { font-size:clamp(2.2rem,4vw,3.4rem); font-weight:900; line-height:1.1; color:var(--text-dark); margin:0 0 24px; }
-  .abt-hl { position:relative; color:var(--teal-mid); }
-  .abt-hl::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal-mid),var(--teal-bright)); border-radius:2px; }
+  .abt-hl { position:relative; color:var(--gold-mid); }
+  .abt-hl::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold-mid),var(--gold-bright)); border-radius:2px; }
   .abt-desc { font-size:0.9rem; color:var(--text-muted); line-height:1.8; margin:0; max-width:480px; }
   .abt-hero-stats { display:flex; flex-direction:column; gap:16px; }
   .abt-bigstat { display:flex; align-items:center; gap:20px; background:var(--bg-card); border:1.5px solid var(--border-card); border-radius:16px; padding:20px 24px; transition:transform 0.2s; }
   .abt-bigstat:hover { transform:translateX(6px); }
-  .abt-bignum { font-size:2.6rem; font-weight:900; background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; min-width:72px; line-height:1; }
+  .abt-bignum { font-size:2.6rem; font-weight:900; background:linear-gradient(135deg,var(--gold-mid),var(--gold-bright)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; min-width:72px; line-height:1; }
   .abt-bigdesc { font-size:0.82rem; color:var(--text-muted); line-height:1.6; }
   .abt-bigdesc small { font-size:0.72rem; opacity:0.7; font-family:monospace; letter-spacing:0.03em; }
 
@@ -281,8 +293,8 @@
   .abt-zig-problem p { font-size:0.8rem; color:var(--text-muted); line-height:1.7; margin:0; }
   .abt-zig-arrow { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:10px 0; }
   .abt-zig-line { width:2px; flex:1; background:linear-gradient(to bottom, transparent, var(--teal-mid), transparent); min-height:40px; }
-  .abt-zig-dot { width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); box-shadow:0 0 8px rgba(13,82,168,0.5); }
-  .abt-zig-solution { background:linear-gradient(135deg, rgba(13,82,168,0.08), rgba(13,82,168,0.03)); border:1.5px solid rgba(13,82,168,0.18); border-radius:16px; padding:28px 28px; }
+  .abt-zig-dot { width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--gold-mid),var(--gold-bright)); box-shadow:0 0 8px rgba(184,134,11,0.5); }
+  .abt-zig-solution { background:linear-gradient(135deg, rgba(184,134,11,0.06), rgba(184,134,11,0.02)); border:1.5px solid rgba(184,134,11,0.25); border-radius:16px; padding:28px 28px; }
   .abt-zig-sol-tag { font-size:0.65rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:10px; display:block; }
   .abt-zig-solution p { font-size:0.82rem; color:var(--text-muted); line-height:1.75; margin:0; }
 
@@ -293,16 +305,16 @@
   .abt-persona { padding:32px 28px; background:var(--bg-card); border-right:1.5px solid var(--border-card); display:flex; flex-direction:column; gap:20px; transition:background 0.3s; }
   .abt-persona:last-child { border-right:none; }
   .abt-persona:hover { background:var(--bg-body); }
-  .abt-persona-mid { background:linear-gradient(160deg,rgba(13,82,168,0.06),var(--bg-card)); }
+  .abt-persona-mid { background:linear-gradient(160deg,rgba(184,134,11,0.05),var(--bg-card)); }
   .abt-persona-top { display:flex; align-items:center; gap:14px; }
   .abt-persona-avatar { font-size:1.8rem; }
   .abt-persona-role { font-size:0.82rem; font-weight:700; color:var(--text-dark); }
-  .abt-persona-quote { margin:0; padding:14px 16px; background:var(--bg-body); border-left:3px solid var(--teal-mid); border-radius:0 10px 10px 0; font-size:0.78rem; font-style:italic; color:var(--text-muted); line-height:1.7; }
-  body.ar .abt-persona-quote { border-left:none; border-right:3px solid var(--teal-mid); border-radius:10px 0 0 10px; }
+  .abt-persona-quote { margin:0; padding:14px 16px; background:var(--bg-body); border-left:3px solid var(--gold-mid); border-radius:0 10px 10px 0; font-size:0.78rem; font-style:italic; color:var(--text-muted); line-height:1.7; }
+  body.ar .abt-persona-quote { border-left:none; border-right:3px solid var(--gold-mid); border-radius:10px 0 0 10px; }
   .abt-persona-gets { display:flex; flex-direction:column; gap:8px; }
-  .abt-persona-gets-label { font-size:0.65rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal-mid); }
+  .abt-persona-gets-label { font-size:0.65rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-mid); }
   .abt-persona-tags { display:flex; flex-direction:column; gap:6px; }
-  .abt-persona-tags span { font-size:0.73rem; color:var(--text-muted); background:var(--bg-body); border:1px solid var(--border-card); border-radius:6px; padding:4px 10px; display:inline-block; }
+  .abt-persona-tags .tag { font-size:0.73rem; color:var(--text-muted); background:var(--bg-body); border:1px solid var(--border-card); border-radius:6px; padding:4px 10px; display:inline-block; }
 
   @media(max-width:768px){
     .abt-hero { grid-template-columns:1fr; gap:32px; }
@@ -325,14 +337,14 @@
   .nist-coming { background:linear-gradient(135deg,#8a3a1a,#c4521e); color:white; }
   .sama-coming { background:linear-gradient(135deg,#8a6800,#c49a00); color:white; }
   .agent-soon { opacity:0.6; pointer-events:none; position:relative; }
-  .soon-label { position:absolute; top:14px; right:14px; font-size:0.68rem; font-weight:700; background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white; padding:3px 10px; border-radius:20px; letter-spacing:0.05em; }
+  .soon-label { position:absolute; top:14px; right:14px; font-size:0.68rem; font-weight:700; background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:white; padding:3px 10px; border-radius:20px; letter-spacing:0.05em; }
   body.ar .soon-label { right:auto; left:14px; }
   .ac-icon-muted { opacity:0.4; }
   .agent-tag-soon { background:rgba(100,116,139,0.1) !important; color:var(--text-muted) !important; }
 
 
   /* ── STATS ── */
-  .stats-bar { background:linear-gradient(135deg,#082d5e,#0d52a8); padding:52px 56px; }
+  .stats-bar { background:linear-gradient(135deg,#1a1200,#2d2000); padding:52px 56px; }
   .stats-inner { display:grid; grid-template-columns:repeat(4,1fr); max-width:1100px; margin:0 auto; }
   .s-item { text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,0.15); }
   .s-item:last-child { border-right:none; }
@@ -342,15 +354,15 @@
   .s-lbl { font-size:0.8rem; color:rgba(255,255,255,0.65); }
 
   /* ── CTA ── */
-  .cta-section { position:relative; background:linear-gradient(145deg,#060f1e,#0a1f3d,#0d2d52); padding:100px 40px; text-align:center; overflow:hidden; }
-  .cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:400px; background:radial-gradient(ellipse at center, rgba(13,82,168,0.3) 0%, transparent 70%); pointer-events:none; }
+  .cta-section { position:relative; background:linear-gradient(145deg,#0d0e00,#1a1200,#2d2000); padding:100px 40px; text-align:center; overflow:hidden; }
+  .cta-glow { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:400px; background:radial-gradient(ellipse at center, rgba(212,160,23,0.2) 0%, transparent 70%); pointer-events:none; }
   .cta-inner { position:relative; z-index:1; max-width:680px; margin:0 auto; }
-  .cta-tag { display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal-bright); border:1px solid rgba(13,120,200,0.4); padding:5px 16px; border-radius:20px; margin-bottom:28px; }
+  .cta-tag { display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold-bright); border:1px solid rgba(212,160,23,0.4); padding:5px 16px; border-radius:20px; margin-bottom:28px; }
   .cta-title { font-size:clamp(2rem,4vw,3rem); font-weight:900; color:white; line-height:1.15; margin:0 0 20px; }
   .cta-desc { font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.8; margin:0 0 40px; }
   .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:36px; }
-  .cta-btn-primary { background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); color:white; font-size:0.9rem; font-weight:700; padding:14px 32px; border-radius:12px; text-decoration:none; box-shadow:0 6px 24px rgba(13,82,168,0.5); transition:all 0.25s; display:inline-block; }
-  .cta-btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(13,82,168,0.65); }
+  .cta-btn-primary { background:linear-gradient(135deg,var(--gold-dark),var(--gold-bright)); color:#1a1200; font-size:0.9rem; font-weight:700; padding:14px 32px; border-radius:12px; text-decoration:none; box-shadow:0 6px 24px rgba(184,134,11,0.4); transition:all 0.25s; display:inline-block; }
+  .cta-btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(184,134,11,0.55); }
   .cta-btn-secondary { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.85); font-size:0.9rem; font-weight:600; padding:14px 32px; border-radius:12px; text-decoration:none; border:1px solid rgba(255,255,255,0.15); transition:all 0.25s; display:inline-block; }
   .cta-btn-secondary:hover { background:rgba(255,255,255,0.14); transform:translateY(-2px); }
   .cta-frameworks { display:flex; gap:12px; justify-content:center; align-items:center; }
@@ -365,17 +377,15 @@
   .btn-ghost:hover { background:rgba(13,82,168,0.05); border-color:var(--teal-mid); }
 
   /* ── FOOTER ── */
-  footer { background:var(--text-dark); padding:40px 56px 28px; }
+  footer { background:linear-gradient(160deg,#0d0e00,#1a1200); padding:40px 56px 28px; }
   .f-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
-  .f-logo { display:flex; align-items:center; gap:10px; font-weight:700; font-size:1rem; color:white; }
-  .f-logo .logo-shield { width:28px; height:28px; font-size:0.8rem; }
+  .f-logo { display:flex; align-items:center; gap:10px; }
   .f-desc { font-size:0.75rem; color:rgba(255,255,255,0.35); letter-spacing:0.5px; }
   .f-divider { height:1px; background:rgba(255,255,255,0.08); margin-bottom:28px; }
   .f-dev-center { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:24px; }
   .f-dev-by { font-size:0.8rem; color:rgba(255,255,255,0.45); }
   .f-dev-card { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.15); border-radius:30px; padding:8px 18px 8px 8px; text-decoration:none; transition:all 0.25s; }
-  .f-dev-card:hover { background:rgba(13,82,168,0.35); border-color:rgba(13,120,200,0.6); transform:translateY(-2px); }
-  .f-dev-avatar { width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,var(--teal-mid),var(--teal-bright)); display:flex; align-items:center; justify-content:center; font-size:0.62rem; font-weight:800; color:white; flex-shrink:0; }
+  .f-dev-card:hover { background:rgba(184,134,11,0.25); border-color:rgba(212,160,23,0.5); transform:translateY(-2px); }
   .f-dev-name { font-size:0.88rem; font-weight:700; color:white; }
   .f-dev-li { color:rgba(255,255,255,0.4); transition:color 0.2s; }
   .f-dev-card:hover .f-dev-li { color:#0077b5; }
@@ -397,14 +407,27 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">
-    <div class="logo-shield">💠</div>
-    <span class="en-text">GRCore</span>
-    <span class="ar-text">GRCore</span>
+    <div class="logo-rukaz">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Modern geometric ر - three rising pillars of different heights = رسوخ وثبات -->
+        <rect x="5"  y="26" width="7" height="10" rx="3.5" fill="#d4a017"/>
+        <rect x="16" y="18" width="7" height="18" rx="3.5" fill="#e8b830"/>
+        <rect x="27" y="10" width="7" height="26" rx="3.5" fill="white" opacity="0.95"/>
+        <!-- Gold dot on top pillar = الركاز/الكنز -->
+        <circle cx="30.5" cy="7" r="3.5" fill="#d4a017"/>
+        <!-- Connecting base line -->
+        <rect x="5" y="34" width="29" height="2.5" rx="1.25" fill="white" opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="logo-text-wrap">
+      <span class="logo-name"><span class="en-text">Rukaz</span><span class="ar-text">ركاز</span></span>
+      <span class="logo-sub">GRC</span>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="javascript:void(0)" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      <span class="en-text">Why GRCore</span><span class="ar-text">لماذا GRCore</span>
+      <span class="en-text">Why Rukaz GRC</span><span class="ar-text">لماذا ركاز GRC</span>
     </a></li>
     <li><a href="javascript:void(0)" onclick="document.getElementById('process').scrollIntoView({behavior:'smooth'})">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
@@ -432,20 +455,32 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-icon">💠</div>
-  <h1 class="en-block">GRCore Platform</h1>
-  <h1 class="ar-block">منصة GRCore</h1>
+  <div class="hero-icon">
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Three rising pillars = ركاز -->
+      <rect x="8"  y="46" width="14" height="20" rx="7"  fill="#d4a017" opacity="0.7"/>
+      <rect x="29" y="32" width="14" height="34" rx="7"  fill="#e8b830" opacity="0.85"/>
+      <rect x="50" y="16" width="14" height="50" rx="7"  fill="white"   opacity="0.95"/>
+      <!-- Gold ore dot = الركاز/الكنز -->
+      <circle cx="57" cy="10" r="7" fill="#d4a017"/>
+      <circle cx="57" cy="10" r="3.5" fill="white" opacity="0.7"/>
+      <!-- Base line -->
+      <rect x="6" y="64" width="60" height="3" rx="1.5" fill="white" opacity="0.2"/>
+    </svg>
+  </div>
+  <h1 class="en-block">Rukaz GRC Platform</h1>
+  <h1 class="ar-block">منصة ركاز GRC</h1>
   <p class="hero-sub">
-    <span class="en-text">AI-Powered GRC Platform for Saudi Cybersecurity Frameworks</span>
-    <span class="ar-text">منصة GRC مدعومة بالذكاء الاصطناعي لأطر الأمن السيبراني في المملكة</span>
+    <span class="en-text">Unearth the Value Hidden in Your Cybersecurity Frameworks</span>
+    <span class="ar-text">استخرج الكنز الكامن في أطر الأمن السيبراني الخاصة بك</span>
   </p>
   <p class="hero-desc">
-    <span class="en-text">GRCore brings together AI agents and official cybersecurity frameworks — NCA, SAMA, ISO, and NIST — in one unified platform built for Saudi organizations.</span>
-    <span class="ar-text">GRCore تجمع وكلاء الذكاء الاصطناعي والأطر السيبرانية الرسمية — NCA وسما وISO وNIST — في منصة واحدة مبنية للمنظمات السعودية.</span>
+    <span class="en-text">Just as "Rukaz" in Arabic means precious ore buried in the earth — Rukaz GRC unearths the true value locked inside complex cybersecurity frameworks, turning them into clear actions, automated workflows, and real results.</span>
+    <span class="ar-text">كما أن الركاز هو المعدن الثمين المدفون في باطن الأرض — منصة ركاز تستخرج القيمة الحقيقية المدفونة داخل أطر الأمن السيبراني المعقدة، وتحولها إلى إجراءات واضحة وسير عمل مؤتمت ونتائج فعلية.</span>
   </p>
   <p class="hero-desc2">
-    <span class="en-text">Three specialized AI agents handle governance, risk, and compliance — automating the work that used to take your team days, aligned with every major cybersecurity framework in Saudi Arabia.</span>
-    <span class="ar-text">ثلاثة وكلاء ذكاء اصطناعي متخصصون يتولون الحوكمة والمخاطر والامتثال — يؤتمتون العمل الذي كان يستغرق أياماً، متوافقين مع جميع أطر الأمن السيبراني الرئيسية في المملكة.</span>
+    <span class="en-text">NCA · SAMA · ISO · NIST — four official frameworks, three AI agents, one platform. Rukaz makes compliance less of a burden and more of a strategic advantage.</span>
+    <span class="ar-text">NCA · سما · ISO · NIST — أربعة أطر رسمية، ثلاثة وكلاء ذكاء اصطناعي، منصة واحدة. ركاز تحول الامتثال من عبء إلى ميزة استراتيجية.</span>
   </p>
   <div class="hero-btns">
     <button class="btn-white" onclick="document.getElementById('agents').scrollIntoView({behavior:'smooth'})"><span class="en-text">Get Started</span><span class="ar-text">ابدأ الآن</span></button>
@@ -466,14 +501,14 @@
   <!-- ── TOP: Big statement + zigzag problem/solution ── -->
   <div class="abt-hero">
     <div class="abt-hero-text">
-      <div class="abt-eyebrow"><span class="en-text">Why GRCore</span><span class="ar-text">لماذا GRCore</span></div>
+      <div class="abt-eyebrow"><span class="en-text">Why Rukaz GRC</span><span class="ar-text">لماذا ركاز GRC</span></div>
       <h2 class="abt-headline">
-        <span class="en-text">GRC work is<br><span class="abt-hl">broken.</span><br>We fixed it.</span>
-        <span class="ar-text">العمل في GRC<br><span class="abt-hl">معطّل.</span><br>نحن أصلحناه.</span>
+        <span class="en-text">The value is there.<br><span class="abt-hl">Buried.</span><br>Rukaz unearths it.</span>
+        <span class="ar-text">القيمة موجودة.<br><span class="abt-hl">مدفونة.</span><br>ركاز تستخرجها.</span>
       </h2>
       <p class="abt-desc">
-        <span class="en-text">GRCore is the first AI platform built entirely around Saudi Arabia's cybersecurity frameworks — automating the work, connecting the dots, and giving every team exactly what they need.</span>
-        <span class="ar-text">GRCore هي أول منصة ذكاء اصطناعي مبنية بالكامل حول أطر الأمن السيبراني في المملكة — تؤتمت العمل وتربط النقاط وتعطي كل فريق ما يحتاجه بالضبط.</span>
+        <span class="en-text">ركاز in Arabic means precious ore buried in the earth — hidden value waiting to be unearthed. Rukaz GRC does exactly that: extracts the real value locked inside Saudi Arabia's cybersecurity frameworks and turns it into clear actions.</span>
+        <span class="ar-text">الركاز هو المعدن الثمين المدفون في باطن الأرض — قيمة خفية تنتظر من يستخرجها. منصة ركاز تستخرج القيمة الحقيقية الكامنة في أطر الأمن السيبراني وتحولها إلى إجراءات واضحة ونتائج فعلية.</span>
       </p>
     </div>
     <div class="abt-hero-stats">
@@ -504,14 +539,14 @@
       </div>
       <div class="abt-zig-arrow"><div class="abt-zig-line"></div><div class="abt-zig-dot"></div></div>
       <div class="abt-zig-solution">
-        <div class="abt-zig-sol-tag"><span class="en-text">GRCore fixes this</span><span class="ar-text">GRCore تحل هذا</span></div>
+        <div class="abt-zig-sol-tag"><span class="en-text">Rukaz GRC fixes this</span><span class="ar-text">ركاز GRC تحل هذا</span></div>
         <p><span class="en-text">All 4 frameworks in one place — NCA, SAMA, ISO, NIST — with direct links to official documents and AI agents for each.</span><span class="ar-text">الأطر الـ 4 في مكان واحد — مع روابط مباشرة للوثائق الرسمية ووكلاء ذكاء اصطناعي لكل منها.</span></p>
       </div>
     </div>
 
     <div class="abt-zig-row abt-zig-reverse">
       <div class="abt-zig-solution">
-        <div class="abt-zig-sol-tag"><span class="en-text">GRCore fixes this</span><span class="ar-text">GRCore تحل هذا</span></div>
+        <div class="abt-zig-sol-tag"><span class="en-text">Rukaz GRC fixes this</span><span class="ar-text">ركاز GRC تحل هذا</span></div>
         <p><span class="en-text">AI agents write policies, map controls, and draft audit reports in minutes — not days. Your team focuses on decisions, not paperwork.</span><span class="ar-text">وكلاء الذكاء الاصطناعي يكتبون السياسات ويطابقون الضوابط ويعدون تقارير التدقيق في دقائق لا أيام.</span></p>
       </div>
       <div class="abt-zig-arrow"><div class="abt-zig-line"></div><div class="abt-zig-dot"></div></div>
@@ -532,7 +567,7 @@
       </div>
       <div class="abt-zig-arrow"><div class="abt-zig-line"></div><div class="abt-zig-dot"></div></div>
       <div class="abt-zig-solution">
-        <div class="abt-zig-sol-tag"><span class="en-text">GRCore fixes this</span><span class="ar-text">GRCore تحل هذا</span></div>
+        <div class="abt-zig-sol-tag"><span class="en-text">Rukaz GRC fixes this</span><span class="ar-text">ركاز GRC تحل هذا</span></div>
         <p><span class="en-text">Instant, clear compliance summaries for every level — from technical teams to the boardroom. Always current, always accurate.</span><span class="ar-text">ملخصات امتثال فورية وواضحة لكل مستوى — من الفرق التقنية إلى مجلس الإدارة. دائماً محدثة ودقيقة.</span></p>
       </div>
     </div>
@@ -541,7 +576,7 @@
 
   <!-- ── PERSONAS: Who is it for ── -->
   <div class="abt-personas">
-    <div class="abt-personas-label"><span class="en-text">Who uses GRCore?</span><span class="ar-text">من يستخدم GRCore؟</span></div>
+    <div class="abt-personas-label"><span class="en-text">Who uses Rukaz GRC?</span><span class="ar-text">من يستخدم ركاز GRC؟</span></div>
     <div class="abt-personas-grid">
 
       <div class="abt-persona">
@@ -556,9 +591,9 @@
         <div class="abt-persona-gets">
           <div class="abt-persona-gets-label"><span class="en-text">Gets →</span><span class="ar-text">يحصل على ←</span></div>
           <div class="abt-persona-tags">
-            <span><span class="en-text">Instant control lookup</span><span class="ar-text">بحث فوري في الضوابط</span></span>
-            <span><span class="en-text">Gap analysis</span><span class="ar-text">تحليل الفجوات</span></span>
-            <span><span class="en-text">Framework comparisons</span><span class="ar-text">مقارنة الأطر</span></span>
+            <div class="tag"><span class="en-text">Instant control lookup</span><span class="ar-text">بحث فوري في الضوابط</span></div>
+            <div class="tag"><span class="en-text">Gap analysis</span><span class="ar-text">تحليل الفجوات</span></div>
+            <div class="tag"><span class="en-text">Framework comparisons</span><span class="ar-text">مقارنة الأطر</span></div>
           </div>
         </div>
       </div>
@@ -575,9 +610,9 @@
         <div class="abt-persona-gets">
           <div class="abt-persona-gets-label"><span class="en-text">Gets →</span><span class="ar-text">يحصل على ←</span></div>
           <div class="abt-persona-tags">
-            <span><span class="en-text">Policy automation</span><span class="ar-text">أتمتة السياسات</span></span>
-            <span><span class="en-text">Audit prep</span><span class="ar-text">تحضير التدقيق</span></span>
-            <span><span class="en-text">Risk assessments</span><span class="ar-text">تقييمات المخاطر</span></span>
+            <div class="tag"><span class="en-text">Policy automation</span><span class="ar-text">أتمتة السياسات</span></div>
+            <div class="tag"><span class="en-text">Audit prep</span><span class="ar-text">تحضير التدقيق</span></div>
+            <div class="tag"><span class="en-text">Risk assessments</span><span class="ar-text">تقييمات المخاطر</span></div>
           </div>
         </div>
       </div>
@@ -594,9 +629,9 @@
         <div class="abt-persona-gets">
           <div class="abt-persona-gets-label"><span class="en-text">Gets →</span><span class="ar-text">يحصل على ←</span></div>
           <div class="abt-persona-tags">
-            <span><span class="en-text">Executive summaries</span><span class="ar-text">ملخصات قيادية</span></span>
-            <span><span class="en-text">Risk exposure</span><span class="ar-text">التعرض للمخاطر</span></span>
-            <span><span class="en-text">Posture reports</span><span class="ar-text">تقارير الوضع</span></span>
+            <div class="tag"><span class="en-text">Executive summaries</span><span class="ar-text">ملخصات قيادية</span></div>
+            <div class="tag"><span class="en-text">Risk exposure</span><span class="ar-text">التعرض للمخاطر</span></div>
+            <div class="tag"><span class="en-text">Posture reports</span><span class="ar-text">تقارير الوضع</span></div>
           </div>
         </div>
       </div>
@@ -837,28 +872,28 @@
   <!-- NCA TAB -->
   <div class="fw-tab-content" id="tab-nca">
     <div class="fw-tab-header">
-      <a href="https://nca.gov.sa/en/regulatory-documents/" target="_blank" rel="noopener" class="fw-tab-src"><span class="en-text">📋 Source: nca.gov.sa Official ↗</span><span class="ar-text">📋 المصدر: nca.gov.sa الرسمي ↗</span></a>
+      <a href="https://nca.gov.sa/en/regulatory-documents/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/';}" target="_blank" rel="noopener" class="fw-tab-src"><span class="en-text">📋 Source: nca.gov.sa Official ↗</span><span class="ar-text">📋 المصدر: nca.gov.sa الرسمي ↗</span></a>
     </div>
     <div class="fw-category-label">🔒 <span class="en-text">Policies &amp; Controls</span><span class="ar-text">السياسات والضوابط</span></div>
     <div class="fw-grid" style="margin-bottom:28px;">
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/" target="_blank" rel="noopener"><div class="fw-badge">ECC</div><h4><span class="en-text">Essential Cybersecurity Controls</span><span class="ar-text">الضوابط الأساسية للأمن السيبراني</span></h4><p><span class="en-text">Baseline cybersecurity controls mandatory for all organizations in Saudi Arabia.</span><span class="ar-text">ضوابط الأمن السيبراني الأساسية الإلزامية لجميع المنظمات في المملكة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/cscc/" target="_blank" rel="noopener"><div class="fw-badge">CSCC</div><h4><span class="en-text">Critical Systems Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للأنظمة الحساسة</span></h4><p><span class="en-text">Controls to safeguard critical systems essential to organizational and national operations.</span><span class="ar-text">ضوابط لحماية الأنظمة الحساسة الأساسية للعمليات المؤسسية والوطنية.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/otcc/" target="_blank" rel="noopener"><div class="fw-badge">OTCC</div><h4><span class="en-text">Operational Technology Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للأنظمة التشغيلية</span></h4><p><span class="en-text">Security controls for industrial and OT environments and critical infrastructure protection.</span><span class="ar-text">ضوابط أمنية لبيئات التقنيات التشغيلية وحماية البنية التحتية الحيوية.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/tcc/" target="_blank" rel="noopener"><div class="fw-badge">TCC</div><h4><span class="en-text">Telework Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للعمل عن بُعد</span></h4><p><span class="en-text">Controls for remote work security including device protection and remote access.</span><span class="ar-text">ضوابط أمان العمل عن بُعد تشمل حماية الأجهزة والوصول الآمن.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/osmacc/" target="_blank" rel="noopener"><div class="fw-badge">OSMACC</div><h4><span class="en-text">Social Media Accounts Cybersecurity Controls</span><span class="ar-text">ضوابط أمن حسابات التواصل الاجتماعي</span></h4><p><span class="en-text">Framework to secure organizational social media accounts from breaches and misuse.</span><span class="ar-text">إطار لحماية حسابات المنظمات على منصات التواصل الاجتماعي من الاختراق والإساءة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/ccc/" target="_blank" rel="noopener"><div class="fw-badge">CCC</div><h4><span class="en-text">Cloud Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للحوسبة السحابية</span></h4><p><span class="en-text">Security controls for cloud computing environments and cloud service providers in Saudi Arabia.</span><span class="ar-text">ضوابط أمنية لبيئات الحوسبة السحابية ومزودي الخدمات السحابية في المملكة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/dcc/" target="_blank" rel="noopener"><div class="fw-badge">DCC</div><h4><span class="en-text">Data Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للبيانات</span></h4><p><span class="en-text">Minimum cybersecurity requirements to protect organizational data throughout its entire lifecycle.</span><span class="ar-text">الحد الأدنى من متطلبات الأمن السيبراني لحماية بيانات المنظمات طوال دورة حياتها الكاملة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/ecc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/ecc/';}" target="_blank" rel="noopener"><div class="fw-badge">ECC</div><h4><span class="en-text">Essential Cybersecurity Controls</span><span class="ar-text">الضوابط الأساسية للأمن السيبراني</span></h4><p><span class="en-text">Baseline cybersecurity controls mandatory for all organizations in Saudi Arabia.</span><span class="ar-text">ضوابط الأمن السيبراني الأساسية الإلزامية لجميع المنظمات في المملكة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/cscc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/cscc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/cscc/';}" target="_blank" rel="noopener"><div class="fw-badge">CSCC</div><h4><span class="en-text">Critical Systems Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للأنظمة الحساسة</span></h4><p><span class="en-text">Controls to safeguard critical systems essential to organizational and national operations.</span><span class="ar-text">ضوابط لحماية الأنظمة الحساسة الأساسية للعمليات المؤسسية والوطنية.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/otcc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/otcc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/otcc/';}" target="_blank" rel="noopener"><div class="fw-badge">OTCC</div><h4><span class="en-text">Operational Technology Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للأنظمة التشغيلية</span></h4><p><span class="en-text">Security controls for industrial and OT environments and critical infrastructure protection.</span><span class="ar-text">ضوابط أمنية لبيئات التقنيات التشغيلية وحماية البنية التحتية الحيوية.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/tcc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/tcc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/tcc/';}" target="_blank" rel="noopener"><div class="fw-badge">TCC</div><h4><span class="en-text">Telework Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للعمل عن بُعد</span></h4><p><span class="en-text">Controls for remote work security including device protection and remote access.</span><span class="ar-text">ضوابط أمان العمل عن بُعد تشمل حماية الأجهزة والوصول الآمن.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/osmacc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/osmacc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/osmacc/';}" target="_blank" rel="noopener"><div class="fw-badge">OSMACC</div><h4><span class="en-text">Social Media Accounts Cybersecurity Controls</span><span class="ar-text">ضوابط أمن حسابات التواصل الاجتماعي</span></h4><p><span class="en-text">Framework to secure organizational social media accounts from breaches and misuse.</span><span class="ar-text">إطار لحماية حسابات المنظمات على منصات التواصل الاجتماعي من الاختراق والإساءة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/ccc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/ccc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/ccc/';}" target="_blank" rel="noopener"><div class="fw-badge">CCC</div><h4><span class="en-text">Cloud Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للحوسبة السحابية</span></h4><p><span class="en-text">Security controls for cloud computing environments and cloud service providers in Saudi Arabia.</span><span class="ar-text">ضوابط أمنية لبيئات الحوسبة السحابية ومزودي الخدمات السحابية في المملكة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/controls-list/dcc/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/controls-list/dcc/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/controls-list/dcc/';}" target="_blank" rel="noopener"><div class="fw-badge">DCC</div><h4><span class="en-text">Data Cybersecurity Controls</span><span class="ar-text">ضوابط الأمن السيبراني للبيانات</span></h4><p><span class="en-text">Minimum cybersecurity requirements to protect organizational data throughout its entire lifecycle.</span><span class="ar-text">الحد الأدنى من متطلبات الأمن السيبراني لحماية بيانات المنظمات طوال دورة حياتها الكاملة.</span></p><span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span></a>
     </div>
     <div class="fw-category-label">📐 <span class="en-text">Frameworks &amp; Standards</span><span class="ar-text">الأطر والمعايير</span></div>
     <div class="fw-grid" style="margin-bottom:28px;">
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/scywf/" target="_blank" rel="noopener"><div class="fw-badge">SCyWF</div><h4><span class="en-text">Saudi Cybersecurity Workforce Framework</span><span class="ar-text">الإطار السعودي لكوادر الأمن السيبراني</span></h4><p><span class="en-text">Defines cybersecurity job roles across 5 categories and 40 roles for national workforce development.</span><span class="ar-text">يحدد أدوار الأمن السيبراني عبر 5 فئات و40 دوراً وظيفياً لتنمية الكوادر الوطنية.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/ncs/" target="_blank" rel="noopener"><div class="fw-badge">NCS</div><h4><span class="en-text">National Cryptographic Standards</span><span class="ar-text">المعايير الوطنية للتشفير</span></h4><p><span class="en-text">Standards governing cryptographic algorithms and protocols across national systems and infrastructure.</span><span class="ar-text">معايير تحكم خوارزميات التشفير والبروتوكولات عبر الأنظمة والبنية التحتية الوطنية.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/scyberedu/" target="_blank" rel="noopener"><div class="fw-badge">SCyber-Edu</div><h4><span class="en-text">Saudi Cybersecurity Higher Education Framework</span><span class="ar-text">الإطار السعودي للتعليم العالي في الأمن السيبراني</span></h4><p><span class="en-text">Framework for developing and accrediting cybersecurity higher education programs nationally.</span><span class="ar-text">إطار لتطوير واعتماد برامج التعليم العالي في الأمن السيبراني على المستوى الوطني.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/scywf/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/frameworks-and-standard-list/scywf/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/scywf/';}" target="_blank" rel="noopener"><div class="fw-badge">SCyWF</div><h4><span class="en-text">Saudi Cybersecurity Workforce Framework</span><span class="ar-text">الإطار السعودي لكوادر الأمن السيبراني</span></h4><p><span class="en-text">Defines cybersecurity job roles across 5 categories and 40 roles for national workforce development.</span><span class="ar-text">يحدد أدوار الأمن السيبراني عبر 5 فئات و40 دوراً وظيفياً لتنمية الكوادر الوطنية.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/ncs/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/frameworks-and-standard-list/ncs/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/ncs/';}" target="_blank" rel="noopener"><div class="fw-badge">NCS</div><h4><span class="en-text">National Cryptographic Standards</span><span class="ar-text">المعايير الوطنية للتشفير</span></h4><p><span class="en-text">Standards governing cryptographic algorithms and protocols across national systems and infrastructure.</span><span class="ar-text">معايير تحكم خوارزميات التشفير والبروتوكولات عبر الأنظمة والبنية التحتية الوطنية.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/scyberedu/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/frameworks-and-standard-list/scyberedu/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/frameworks-and-standard-list/scyberedu/';}" target="_blank" rel="noopener"><div class="fw-badge">SCyber-Edu</div><h4><span class="en-text">Saudi Cybersecurity Higher Education Framework</span><span class="ar-text">الإطار السعودي للتعليم العالي في الأمن السيبراني</span></h4><p><span class="en-text">Framework for developing and accrediting cybersecurity higher education programs nationally.</span><span class="ar-text">إطار لتطوير واعتماد برامج التعليم العالي في الأمن السيبراني على المستوى الوطني.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
     </div>
     <div class="fw-category-label">📋 <span class="en-text">Guidelines &amp; Support Tools</span><span class="ar-text">الإرشادات وأدوات الدعم</span></div>
     <div class="fw-grid">
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/guidelines-list/ccgec/" target="_blank" rel="noopener"><div class="fw-badge">eCommerce</div><h4><span class="en-text">Cybersecurity Guidelines for e-Commerce</span><span class="ar-text">إرشادات الأمن السيبراني للتجارة الإلكترونية</span></h4><p><span class="en-text">Guidelines to protect e-commerce platforms, transactions, and customer data in Saudi Arabia.</span><span class="ar-text">إرشادات لحماية منصات التجارة الإلكترونية والمعاملات وبيانات العملاء بالمملكة.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/" target="_blank" rel="noopener"><div class="fw-badge" style="background:linear-gradient(135deg,#3d5166,#6b8499);"><span class="en-text">All Docs</span><span class="ar-text">كل الوثائق</span></div><h4><span class="en-text">View All NCA Regulatory Documents</span><span class="ar-text">عرض جميع الوثائق التنظيمية للهيئة</span></h4><p><span class="en-text">Browse the full library of NCA frameworks, policies, controls, and guidelines.</span><span class="ar-text">تصفح المكتبة الكاملة لأطر الهيئة والسياسات والضوابط والإرشادات.</span></p><span class="fw-cta"><span class="en-text">Visit nca.gov.sa ↗</span><span class="ar-text">زيارة nca.gov.sa ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/guidelines-list/ccgec/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/guidelines-list/ccgec/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/guidelines-list/ccgec/';}" target="_blank" rel="noopener"><div class="fw-badge">eCommerce</div><h4><span class="en-text">Cybersecurity Guidelines for e-Commerce</span><span class="ar-text">إرشادات الأمن السيبراني للتجارة الإلكترونية</span></h4><p><span class="en-text">Guidelines to protect e-commerce platforms, transactions, and customer data in Saudi Arabia.</span><span class="ar-text">إرشادات لحماية منصات التجارة الإلكترونية والمعاملات وبيانات العملاء بالمملكة.</span></p><span class="fw-cta"><span class="en-text">View on NCA ↗</span><span class="ar-text">عرض في الهيئة ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://nca.gov.sa/en/regulatory-documents/" onclick="if(document.body.classList.contains('ar')){this.href='https://nca.gov.sa/ar/regulatory-documents/';}else{this.href='https://nca.gov.sa/en/regulatory-documents/';}" target="_blank" rel="noopener"><div class="fw-badge" style="background:linear-gradient(135deg,#3d5166,#6b8499);"><span class="en-text">All Docs</span><span class="ar-text">كل الوثائق</span></div><h4><span class="en-text">View All NCA Regulatory Documents</span><span class="ar-text">عرض جميع الوثائق التنظيمية للهيئة</span></h4><p><span class="en-text">Browse the full library of NCA frameworks, policies, controls, and guidelines.</span><span class="ar-text">تصفح المكتبة الكاملة لأطر الهيئة والسياسات والضوابط والإرشادات.</span></p><span class="fw-cta"><span class="en-text">Visit nca.gov.sa ↗</span><span class="ar-text">زيارة nca.gov.sa ↗</span></span></a>
     </div>
   </div>
 
@@ -871,7 +906,7 @@
     <div class="fw-grid" style="margin-bottom:28px;">
       <a class="fw-card fw-link" href="https://www.iso.org/standard/27001" target="_blank" rel="noopener"><div class="fw-badge iso-badge">ISO/IEC 27001</div><h4><span class="en-text">Information Security Management Systems</span><span class="ar-text">نظام إدارة أمن المعلومات</span></h4><p><span class="en-text">World's best-known standard for ISMS. Defines requirements for establishing, implementing, and maintaining an information security management system.</span><span class="ar-text">المعيار الأشهر عالمياً لنظام إدارة أمن المعلومات. يحدد متطلبات إنشاء وتنفيذ وصيانة نظام ISMS.</span></p><span class="fw-cta"><span class="en-text">View on ISO ↗</span><span class="ar-text">عرض في ISO ↗</span></span></a>
       <a class="fw-card fw-link" href="https://www.iso.org/standard/75652.html" target="_blank" rel="noopener"><div class="fw-badge iso-badge">ISO/IEC 27002</div><h4><span class="en-text">Information Security Controls</span><span class="ar-text">ضوابط أمن المعلومات</span></h4><p><span class="en-text">Provides guidelines and best practices for implementing information security controls covering access control, cryptography, and incident response.</span><span class="ar-text">إرشادات وأفضل الممارسات لتطبيق ضوابط أمن المعلومات تشمل التحكم بالوصول والتشفير والاستجابة للحوادث.</span></p><span class="fw-cta"><span class="en-text">View on ISO ↗</span><span class="ar-text">عرض في ISO ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://www.iso.org/standard/27005" target="_blank" rel="noopener"><div class="fw-badge iso-badge">ISO/IEC 27005</div><h4><span class="en-text">Information Security Risk Management</span><span class="ar-text">إدارة مخاطر أمن المعلومات</span></h4><p><span class="en-text">Provides guidelines for information security risk management in support of ISO/IEC 27001, helping organizations assess and treat security risks.</span><span class="ar-text">إرشادات لإدارة مخاطر أمن المعلومات داعمةً لـ ISO 27001، تساعد المنظمات على تقييم المخاطر الأمنية ومعالجتها.</span></p><span class="fw-cta"><span class="en-text">View on ISO ↗</span><span class="ar-text">عرض في ISO ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://www.iso.org/standard/80585.html" target="_blank" rel="noopener"><div class="fw-badge iso-badge">ISO/IEC 27005</div><h4><span class="en-text">Information Security Risk Management</span><span class="ar-text">إدارة مخاطر أمن المعلومات</span></h4><p><span class="en-text">Provides guidelines for information security risk management in support of ISO/IEC 27001, helping organizations assess and treat security risks.</span><span class="ar-text">إرشادات لإدارة مخاطر أمن المعلومات داعمةً لـ ISO 27001، تساعد المنظمات على تقييم المخاطر الأمنية ومعالجتها.</span></p><span class="fw-cta"><span class="en-text">View on ISO ↗</span><span class="ar-text">عرض في ISO ↗</span></span></a>
     </div>
     <div class="fw-category-label">⚙️ <span class="en-text">Risk &amp; Business Continuity</span><span class="ar-text">إدارة المخاطر واستمرارية الأعمال</span></div>
     <div class="fw-grid">
@@ -890,7 +925,7 @@
     <div class="fw-grid" style="margin-bottom:28px;">
       <a class="fw-card fw-link" href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener"><div class="fw-badge nist-badge">NIST CSF 2.0</div><h4><span class="en-text">Cybersecurity Framework 2.0</span><span class="ar-text">إطار الأمن السيبراني 2.0</span></h4><p><span class="en-text">The gold standard voluntary cybersecurity framework organized around 6 core functions: Govern, Identify, Protect, Detect, Respond, and Recover.</span><span class="ar-text">إطار الأمن السيبراني الطوعي الأشهر عالمياً، منظم حول 6 وظائف أساسية: الحوكمة، التعرف، الحماية، الكشف، الاستجابة، والتعافي.</span></p><span class="fw-cta"><span class="en-text">View on NIST ↗</span><span class="ar-text">عرض في NIST ↗</span></span></a>
       <a class="fw-card fw-link" href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" target="_blank" rel="noopener"><div class="fw-badge nist-badge">SP 800-53</div><h4><span class="en-text">Security &amp; Privacy Controls</span><span class="ar-text">ضوابط الأمن والخصوصية</span></h4><p><span class="en-text">Comprehensive catalog of 1,000+ security and privacy controls for information systems to protect against cyber threats and risks.</span><span class="ar-text">كتالوج شامل يضم أكثر من 1000 ضابط للأمن والخصوصية لحماية أنظمة المعلومات من التهديدات السيبرانية.</span></p><span class="fw-cta"><span class="en-text">View on NIST ↗</span><span class="ar-text">عرض في NIST ↗</span></span></a>
-      <a class="fw-card fw-link" href="https://csrc.nist.gov/publications/detail/sp/800/171/rev-3/final" target="_blank" rel="noopener"><div class="fw-badge nist-badge">SP 800-171</div><h4><span class="en-text">Protecting Controlled Unclassified Information</span><span class="ar-text">حماية المعلومات غير المصنفة الخاضعة للرقابة</span></h4><p><span class="en-text">Security requirements for protecting the confidentiality of Controlled Unclassified Information (CUI) in non-federal systems.</span><span class="ar-text">متطلبات أمنية لحماية سرية المعلومات غير المصنفة الخاضعة للرقابة في الأنظمة غير الفيدرالية.</span></p><span class="fw-cta"><span class="en-text">View on NIST ↗</span><span class="ar-text">عرض في NIST ↗</span></span></a>
+      <a class="fw-card fw-link" href="https://csrc.nist.gov/pubs/sp/800/171/r3/final" target="_blank" rel="noopener"><div class="fw-badge nist-badge">SP 800-171</div><h4><span class="en-text">Protecting Controlled Unclassified Information</span><span class="ar-text">حماية المعلومات غير المصنفة الخاضعة للرقابة</span></h4><p><span class="en-text">Security requirements for protecting the confidentiality of Controlled Unclassified Information (CUI) in non-federal systems.</span><span class="ar-text">متطلبات أمنية لحماية سرية المعلومات غير المصنفة الخاضعة للرقابة في الأنظمة غير الفيدرالية.</span></p><span class="fw-cta"><span class="en-text">View on NIST ↗</span><span class="ar-text">عرض في NIST ↗</span></span></a>
     </div>
     <div class="fw-category-label">⚙️ <span class="en-text">Risk Management &amp; Privacy</span><span class="ar-text">إدارة المخاطر والخصوصية</span></div>
     <div class="fw-grid">
@@ -903,7 +938,7 @@
   <!-- SAMA TAB -->
   <div class="fw-tab-content" id="tab-sama" style="display:none">
     <div class="fw-tab-header">
-      <a href="https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx" target="_blank" rel="noopener" class="fw-tab-src"><span class="en-text">📋 Source: sama.gov.sa Official ↗</span><span class="ar-text">📋 المصدر: sama.gov.sa الرسمي ↗</span></a>
+      <a href="https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx" onclick="if(document.body.classList.contains('ar')){this.href='https://www.sama.gov.sa/ar-SA/RulesInstructions/pages/cybersecurity.aspx';}else{this.href='https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx';}" target="_blank" rel="noopener" class="fw-tab-src"><span class="en-text">📋 Source: sama.gov.sa Official ↗</span><span class="ar-text">📋 المصدر: sama.gov.sa الرسمي ↗</span></a>
     </div>
 
     <div class="fw-category-label">🏦 <span class="en-text">Cybersecurity Frameworks</span><span class="ar-text">أطر الأمن السيبراني</span></div>
@@ -914,13 +949,13 @@
         <p><span class="en-text">Mandatory framework for all SAMA-regulated financial institutions covering governance, risk management, operations, and third-party security across 4 main domains.</span><span class="ar-text">الإطار الإلزامي لجميع المؤسسات المالية المرخصة من سما. يغطي الحوكمة وإدارة المخاطر والعمليات وأمن الأطراف الثالثة في 4 مجالات.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/cyber-security-framework-3" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/cyber-security-framework-3';}else{this.href='https://rulebook.sama.gov.sa/en/cyber-security-framework-3';}" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">CSF Rulebook</div>
         <h4><span class="en-text">Cyber Security Framework — Rulebook</span><span class="ar-text">إطار الأمن السيبراني — كتاب القواعد</span></h4>
         <p><span class="en-text">Official SAMA rulebook version with all mandatory compliance instructions for banks and financial institutions operating in Saudi Arabia.</span><span class="ar-text">النسخة الرسمية من كتاب قواعد سما مع جميع تعليمات الامتثال الإلزامية للبنوك والمؤسسات المالية في المملكة.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/cyber-security-framework-maturity-level-4-requirements" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/cyber-security-framework-maturity-level-4-requirements';}else{this.href='https://rulebook.sama.gov.sa/en/cyber-security-framework-maturity-level-4-requirements';}" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">CSF ML4</div>
         <h4><span class="en-text">Cyber Security Framework — Maturity Level 4</span><span class="ar-text">إطار الأمن السيبراني — مستوى النضج 4</span></h4>
         <p><span class="en-text">Advanced maturity level 4 requirements for banks to enhance cybersecurity capabilities and professionally manage cyber challenges.</span><span class="ar-text">متطلبات مستوى النضج 4 المتقدم للبنوك لتعزيز قدرات الأمن السيبراني وإدارة التحديات السيبرانية باحترافية.</span></p>
@@ -936,13 +971,13 @@
         <p><span class="en-text">Framework enabling SAMA-regulated organizations to identify and address IT governance risks and achieve the appropriate maturity level of IT controls.</span><span class="ar-text">إطار يمكّن المنظمات الخاضعة لسما من تحديد مخاطر حوكمة تقنية المعلومات ومعالجتها وتحقيق مستوى النضج المناسب.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/entiresection/4498" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/sites/default/files/ar_net_file_store/SAMA_AR_3726_VER1.pdf" data-ar="https://rulebook.sama.gov.sa/sites/default/files/ar_net_file_store/SAMA_AR_3726_VER1.pdf" onclick="if(document.body.classList.contains('ar')){this.href=this.dataset.ar;}else{this.href='https://rulebook.sama.gov.sa/en/entiresection/4498';}" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">CRFR</div>
         <h4><span class="en-text">Cyber Resilience Fundamental Requirements</span><span class="ar-text">متطلبات المرونة السيبرانية الأساسية</span></h4>
         <p><span class="en-text">Minimum cyber resilience requirements for newly licensed fintech entities and sandbox participants entering Saudi Arabia's financial sector.</span><span class="ar-text">الحد الأدنى من متطلبات المرونة السيبرانية للمنشآت الجديدة والمشاركين في بيئة الاختبار الرقابي للقطاع المالي.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/24-cyber-security-maturity-model-0" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/24-cyber-security-maturity-model-0';}else{this.href='https://rulebook.sama.gov.sa/en/24-cyber-security-maturity-model-0';}" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">Maturity Model</div>
         <h4><span class="en-text">Cyber Security Maturity Model</span><span class="ar-text">نموذج نضج الأمن السيبراني</span></h4>
         <p><span class="en-text">SAMA's 6-level cybersecurity maturity model (0–5) used to periodically assess and compare Member Organizations' cybersecurity effectiveness.</span><span class="ar-text">نموذج سما لنضج الأمن السيبراني المكوّن من 6 مستويات (0–5)، يُستخدم لتقييم فعالية الأمن السيبراني ومقارنتها بين المنظمات.</span></p>
@@ -950,21 +985,47 @@
       </a>
     </div>
 
+    <div class="fw-category-label">🔄 <span class="en-text">Operational Resilience</span><span class="ar-text">المرونة التشغيلية</span></div>
+    <div class="fw-grid" style="margin-bottom:28px;">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/Laws/BankingRules/BCM%20framework.pdf" target="_blank" rel="noopener">
+        <div class="fw-badge sama-badge">BCM</div>
+        <h4><span class="en-text">Business Continuity Management Framework v1.0</span><span class="ar-text">إطار إدارة استمرارية الأعمال v1.0</span></h4>
+        <p><span class="en-text">Framework to enhance organizational resilience and ensure continuity of operations and services during disruptions. Based on ISO 22301, ISO 27001, and BCI best practices.</span><span class="ar-text">إطار لتعزيز المرونة المؤسسية وضمان استمرارية العمليات والخدمات خلال الاضطرابات. مبني على ISO 22301 وأفضل الممارسات الدولية.</span></p>
+        <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
+      </a>
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Counter_Fraud_Framework.pdf" target="_blank" rel="noopener">
+        <div class="fw-badge sama-badge">CFF</div>
+        <h4><span class="en-text">Counter-Fraud Framework v1.0</span><span class="ar-text">إطار مكافحة الاحتيال v1.0</span></h4>
+        <p><span class="en-text">Framework covering fraud prevention, detection, and response controls for SAMA-regulated financial institutions and fintech entities. October 2022.</span><span class="ar-text">إطار يغطي ضوابط الوقاية من الاحتيال والكشف عنه والاستجابة له للمؤسسات المالية وشركات التقنية المالية الخاضعة لسما. أكتوبر 2022.</span></p>
+        <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
+      </a>
+    </div>
+
+    <div class="fw-category-label">🕵️ <span class="en-text">Threat Intelligence</span><span class="ar-text">استخبارات التهديدات</span></div>
+    <div class="fw-grid" style="margin-bottom:28px;">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Financial%20Sector%20Cyber%20Threat%20Intelligence%20Principles%20V1.0.pdf" target="_blank" rel="noopener">
+        <div class="fw-badge sama-badge">CTI</div>
+        <h4><span class="en-text">Financial Sector Cyber Threat Intelligence Principles</span><span class="ar-text">مبادئ استخبارات التهديدات السيبرانية للقطاع المالي</span></h4>
+        <p><span class="en-text">Mandatory CTI principles for SAMA-regulated institutions covering Core, Strategic, Operational, and Technical & Tactical threat intelligence. March 2022.</span><span class="ar-text">مبادئ استخبارات التهديدات الإلزامية للمؤسسات الخاضعة لسما تغطي التهديدات الأساسية والاستراتيجية والتشغيلية والتقنية. مارس 2022.</span></p>
+        <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
+      </a>
+    </div>
+
     <div class="fw-category-label">📋 <span class="en-text">Domains & Key Controls</span><span class="ar-text">المجالات والضوابط الرئيسية</span></div>
     <div class="fw-grid">
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/311-cyber-security-governance-0" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/311-cyber-security-governance-0';}else{this.href='https://rulebook.sama.gov.sa/en/311-cyber-security-governance-0';}" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">Governance</div>
         <h4><span class="en-text">Cyber Security Governance</span><span class="ar-text">حوكمة الأمن السيبراني</span></h4>
         <p><span class="en-text">Controls covering cybersecurity strategy, policies, roles, and board-level oversight for SAMA-regulated financial institutions.</span><span class="ar-text">ضوابط تغطي استراتيجية الأمن السيبراني والسياسات والأدوار والرقابة على مستوى مجلس الإدارة للمؤسسات المالية.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://rulebook.sama.gov.sa/en/321-cyber-security-risk-management-0" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/CyberSecurity/Cyber%20Security%20Framework.pdf" onclick="if(document.body.classList.contains('ar')){this.href='https://rulebook.sama.gov.sa/ar/321-cyber-security-risk-management-0';}else{this.href='https://rulebook.sama.gov.sa/en/321-cyber-security-risk-management-0';}" target="_blank" rel="noopener">
         <div class="fw-badge sama-badge">Risk Mgmt</div>
         <h4><span class="en-text">Cyber Security Risk Management</span><span class="ar-text">إدارة مخاطر الأمن السيبراني</span></h4>
         <p><span class="en-text">Requirements for identifying, assessing, and treating cybersecurity risks across all information assets of financial institutions.</span><span class="ar-text">متطلبات تحديد وتقييم ومعالجة مخاطر الأمن السيبراني عبر جميع أصول المعلومات للمؤسسات المالية.</span></p>
         <span class="fw-cta"><span class="en-text">📄 Open Document ↗</span><span class="ar-text">📄 فتح الوثيقة ↗</span></span>
       </a>
-      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx" target="_blank" rel="noopener">
+      <a class="fw-card fw-link" href="https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx" onclick="if(document.body.classList.contains('ar')){this.href='https://www.sama.gov.sa/ar-SA/RulesInstructions/pages/cybersecurity.aspx';}else{this.href='https://www.sama.gov.sa/en-US/RulesInstructions/pages/cybersecurity.aspx';}" target="_blank" rel="noopener">
         <div class="fw-badge" style="background:linear-gradient(135deg,#3d5166,#6b8499);">
           <span class="en-text">All Docs</span><span class="ar-text">كل الوثائق</span>
         </div>
@@ -980,12 +1041,12 @@
 <section class="sec white" id="process">
   <span class="sec-tag"><span class="en-text">How It Works</span><span class="ar-text">كيف تعمل المنصة</span></span>
   <div class="sec-title">
-    <span class="en-text">How GRCore Works</span>
-    <span class="ar-text">كيف تعمل GRCore</span>
+    <span class="en-text">How Rukaz GRC Works</span>
+    <span class="ar-text">كيف تعمل ركاز GRC</span>
   </div>
   <div class="sec-desc">
-    <span class="en-text">GRCore connects your team to four official cybersecurity frameworks through three specialized AI agents — each one an expert in its domain, all working from one unified platform.</span>
-    <span class="ar-text">GRCore تربط فريقك بأربعة أطر سيبرانية رسمية عبر ثلاثة وكلاء ذكاء اصطناعي متخصصين — كل واحد خبير في مجاله، وجميعهم يعملون من منصة واحدة موحدة.</span>
+    <span class="en-text">Rukaz GRC connects your team to four official cybersecurity frameworks through three specialized AI agents — each one an expert in its domain, all working from one unified platform.</span>
+    <span class="ar-text">ركاز GRC تربط فريقك بأربعة أطر سيبرانية رسمية عبر ثلاثة وكلاء ذكاء اصطناعي متخصصين — كل واحد خبير في مجاله، وجميعهم يعملون من منصة واحدة موحدة.</span>
   </div>
 
   <!-- Steps -->
@@ -1034,7 +1095,7 @@
     <!-- Arrow down -->
     <div class="how-arch-arrow">
       <div class="how-arch-vline"></div>
-      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 10L0 0h16L8 10z" fill="var(--teal-mid)" opacity="0.5"/></svg>
+      <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M8 10L0 0h16L8 10z" fill="var(--gold-mid)" opacity="0.6"/></svg>
     </div>
 
     <!-- Three agent cards -->
@@ -1056,8 +1117,10 @@
 
       <div class="how-hub">
         <div class="how-hub-inner">
-          <div class="how-hub-icon">💠</div>
-          <div class="how-hub-name">GRCore</div>
+          <div class="how-hub-icon">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><rect x="3" y="26" width="8" height="11" rx="4" fill="#d4a017" opacity="0.8"/><rect x="16" y="18" width="8" height="19" rx="4" fill="#e8b830" opacity="0.9"/><rect x="29" y="10" width="8" height="27" rx="4" fill="white" opacity="0.95"/><circle cx="33" cy="6" r="4" fill="#d4a017"/></svg>
+      </div>
+          <div class="how-hub-name">Rukaz GRC</div>
           <div class="how-hub-sub"><span class="en-text">AI Engine</span><span class="ar-text">محرك الذكاء الاصطناعي</span></div>
         </div>
         <div class="how-hub-lines">
@@ -1101,14 +1164,18 @@
 
     <!-- NCA frameworks strip — updated to all 4 -->
     <div class="how-nca-strip">
-      <span class="how-nca-label"><span class="en-text">Aligned with →</span><span class="ar-text">متوافق مع ←</span></span>
+      <span class="how-nca-label"><span class="en-text">Aligned with</span><span class="ar-text">متوافق مع</span></span>
       <div class="how-nca-tags">
-        <span class="nca-ftag">NCA ECC</span>
-        <span class="nca-ftag">NCA CSCC</span>
-        <span class="nca-ftag">NCA DCC</span>
-        <span class="nca-ftag" style="background:linear-gradient(135deg,#8a6800,#c49a00)">SAMA CSF</span>
-        <span class="nca-ftag" style="background:linear-gradient(135deg,#1a5c2a,#2d8a42)">ISO 27001</span>
-        <span class="nca-ftag" style="background:linear-gradient(135deg,#8a3a1a,#c4521e)">NIST CSF</span>
+        <span class="how-fw-group-label">NCA</span>
+        <span class="nca-ftag">ECC</span>
+        <span class="nca-ftag">CSCC</span>
+        <span class="nca-ftag">DCC</span>
+        <span class="how-fw-group-label" style="margin-left:8px;">SAMA</span>
+        <span class="nca-ftag" style="background:linear-gradient(135deg,#8a6800,#c49a00)">CSF</span>
+        <span class="how-fw-group-label" style="margin-left:8px;">ISO</span>
+        <span class="nca-ftag" style="background:linear-gradient(135deg,#1a5c2a,#2d8a42)">27001</span>
+        <span class="how-fw-group-label" style="margin-left:8px;">NIST</span>
+        <span class="nca-ftag" style="background:linear-gradient(135deg,#8a3a1a,#c4521e)">CSF</span>
       </div>
     </div>
 
@@ -1119,7 +1186,7 @@
   <div class="stats-inner">
     <div class="s-item"><span class="s-num">4</span><span class="s-lbl"><span class="en-text">Official Frameworks<br><small>NCA · SAMA · ISO · NIST</small></span><span class="ar-text">أطر رسمية<br><small>NCA · سما · ISO · NIST</small></span></span></div>
     <div class="s-item"><span class="s-num">3</span><span class="s-lbl"><span class="en-text">Specialized AI Agents</span><span class="ar-text">وكلاء ذكاء اصطناعي</span></span></div>
-    <div class="s-item"><span class="s-num"><span class="en-text">Real-Time</span><span class="ar-text">آني</span></span><span class="s-lbl"><span class="en-text">Risk Assessment</span><span class="ar-text">تقييم المخاطر</span></span></div>
+    <div class="s-item"><span class="s-num"><span class="en-text">Real-Time</span><span class="ar-text">فوري</span></span><span class="s-lbl"><span class="en-text">AI Analysis</span><span class="ar-text">تحليل بالذكاء الاصطناعي</span></span></div>
     <div class="s-item"><span class="s-num">24/7</span><span class="s-lbl"><span class="en-text">Always Available</span><span class="ar-text">متاح دائماً</span></span></div>
   </div>
 </div>
@@ -1131,7 +1198,7 @@
     <div class="cta-tag"><span class="en-text">Get Started Today</span><span class="ar-text">ابدأ اليوم</span></div>
     <h2 class="cta-title">
       <span class="en-text">Ready to transform<br>your GRC workflow?</span>
-      <span class="ar-text">مستعد لتحويل<br>سير عمل GRC؟</span>
+      <span class="ar-text">مستعد لتحويل<br>سير عمل GRC مع ركاز؟</span>
     </h2>
     <p class="cta-desc">
       <span class="en-text">Three AI agents. Four frameworks. One platform. Start now — no setup required.</span>
@@ -1161,12 +1228,17 @@
 <footer>
   <div class="f-top">
     <div class="f-logo">
-      <div class="logo-shield">💠</div>
-      <span class="en-text">GRCore</span><span class="ar-text">GRCore</span>
+      <div class="logo-rukaz" style="width:30px;height:30px;border-radius:8px;background:linear-gradient(145deg,#1a1200,#2d2000);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,160,23,0.3);">
+        <svg width="20" height="20" viewBox="0 0 40 40" fill="none"><rect x="3" y="26" width="7" height="11" rx="3.5" fill="#d4a017"/><rect x="16" y="18" width="7" height="19" rx="3.5" fill="#e8b830"/><rect x="29" y="10" width="7" height="27" rx="3.5" fill="white" opacity="0.95"/><circle cx="32.5" cy="6" r="3.5" fill="#d4a017"/></svg>
+      </div>
+      <div class="logo-text-wrap">
+        <span class="logo-name" style="color:white;font-size:0.95rem;"><span class="en-text">Rukaz</span><span class="ar-text">ركاز</span></span>
+        <span class="logo-sub" style="color:rgba(212,160,23,0.7);">GRC</span>
+      </div>
     </div>
     <p class="f-desc">
-      <span class="en-text">AI-Powered GRC Platform · NCA · SAMA · ISO · NIST</span>
-      <span class="ar-text">منصة GRC مدعومة بالذكاء الاصطناعي · NCA · سما · ISO · NIST</span>
+      <span class="en-text">Rukaz GRC · AI-Powered Platform · NCA · SAMA · ISO · NIST</span>
+      <span class="ar-text">ركاز GRC · منصة مدعومة بالذكاء الاصطناعي · NCA · سما · ISO · NIST</span>
     </p>
   </div>
 
@@ -1175,13 +1247,12 @@
   <div class="f-dev-center">
     <span class="f-dev-by"><span class="en-text">Developed by</span><span class="ar-text">تم التطوير بواسطة</span></span>
     <a href="https://linkedin.com/in/nawaf-alh" target="_blank" rel="noopener" class="f-dev-card">
-      <div class="f-dev-avatar">NA</div>
       <span class="f-dev-name">Nawaf Alharthi</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="f-dev-li"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
   </div>
 
-  <div class="f-copy-line">© 2025 GRCore</div>
+  <div class="f-copy-line">© 2025 Rukaz GRC</div>
 </footer>
 
 
